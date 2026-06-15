@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "author": "Walisson Rubens",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 200, "left": 300, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr", "top": 80, "left": 80, "attrs": { "resistance": "1000" } },
+    { "type": "wokwi-relay-module", "id": "relay", "top": 80, "left": 560, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 360, "left": 80, "attrs": { "volume": "0.5" } },
+    { "type": "wokwi-led", "id": "led1", "top": 80, "left": 720, "attrs": { "color": "yellow", "label": "Luminária" } }
+  ],
+  "connections": [
+    ["ldr:AO", "esp:34", "green", []],
+    ["ldr:VCC", "esp:3V3", "red", []],
+    ["ldr:GND", "esp:GND.1", "black", []],
+    ["relay:IN", "esp:26", "orange", []],
+    ["relay:VCC", "esp:VIN", "red", []],
+    ["relay:GND", "esp:GND.2", "black", []],
+    ["relay:NO", "led1:A", "yellow", []],
+    ["led1:C", "esp:GND.3", "black", []],
+    ["buzzer:1", "esp:25", "purple", []],
+    ["buzzer:2", "esp:GND.4", "black", []]
+  ],
+  "dependencies": {}
+}
